@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import './index.css'
 import orgImage from "../../img/orgPage.jpeg";
 
 const Aboutsection = styled.div`
@@ -18,6 +18,13 @@ const Styledp = styled.div`
 
 const Position = styled.div`
   color: white;
+`;
+
+const Contactsection = styled.div`
+  margin: 20px auto;
+  width: 60%;
+  color: white;
+  text-align: center;
 `;
 
 const Organization = props => {
@@ -101,9 +108,9 @@ const Organization = props => {
         <h4 style={{ color: "white", padding: "0 0 1em 0" }}>
           Board of Directors
         </h4>
-        {bodList.map(position => {
+        {bodList.map((position, i) => {
           return (
-            <Position>
+            <Position key={i} >
               {position.title} - {position.name}
             </Position>
           );
@@ -112,14 +119,28 @@ const Organization = props => {
         <h4 style={{ color: "white", padding: "1em 0 1em 0" }}>
           Executive Team
         </h4>
-        {execList.map(position => {
+        {execList.map((position, i) => {
           return (
-            <Position>
+            <Position key={i} >
               {position.title} - {position.name}
             </Position>
           );
         })}
-        <Styledp>Interested in joining the team? Let us know!</Styledp>
+        <Contactsection>
+          <h4>Interested in joining the team? Let us know!</h4><br/>
+          <div id='contact-container' style={{ display: 'flex', width: '70%', margin: '0 auto' }}>
+            <div onClick={() => window.location.href = `mailto:juniordevstrugglebus@gmail.com
+          ?subject=I'm interested in joining the JDSB Team!`} id='email-container' style={{ display: 'flex', "flex-direction": "column", width: '48%', cursor: "pointer", border: "1px solid white", 'border-radius': "25px", margin: '0 4% 0 0', padding: '1%', 'font-size': '16pt' }}>
+              <img style={{ margin: '0 auto', width: "50px", height: '50px' }} src="https://icon-library.net/images/white-email-icon-png/white-email-icon-png-16.jpg" alt=""/>
+              Email
+            </div>
+          
+            <div onClick={() => window.location.href = `/slack`} id='slack-container' style={{ display: 'flex', "flex-direction": "column", width: '48%', cursor: "pointer", border: "1px solid white", 'border-radius': "25px", padding: '1%', 'font-size': '16pt' }}>
+              <img style={{ margin: '0 auto', width: "50px", height: '50px' }} src="https://cdn.freebiesupply.com/logos/large/2x/slack-icon-white.png" alt=""/>
+              Slack
+          </div>
+        </div>
+      </Contactsection>
       </Aboutsection>
       {/* <!--end of row--> */}
       <Styledp />

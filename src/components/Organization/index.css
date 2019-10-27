@@ -1,0 +1,6 @@
+#contact-container div:hover{
+    color: black;
+    background: rgb(77, 77, 77);
+    font-weight: 700;
+    box-shadow: 0 0 7px 3.5px white;
+}
